@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
 import slugify from 'slugify';
-
 import './App.css';
+//Feature
+import Feature from './Feature';
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -12,6 +12,7 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD'
 });
+
 
 class App extends Component {
   state = {
@@ -66,12 +67,13 @@ class App extends Component {
       });
 
       return (
-        <fieldset className="feature" key={featureHash}>
-          <legend className="feature__name">
-            <h3>{feature}</h3>
-          </legend>
-          {options}
-        </fieldset>
+        <Feature key = {featureHash} title = {feature} options = {options}/>
+        // <fieldset className="feature" key={featureHash}>
+        //   <legend className="feature__name">
+        //     <h3>{feature}</h3>
+        //   </legend>
+        //   {options}
+        // </fieldset>
       );
     });
 
@@ -105,6 +107,7 @@ class App extends Component {
             <h2>Customize your laptop</h2>
             {features}
           </form>
+
           <section className="main__summary">
             <h2>Your cart</h2>
             {summary}
