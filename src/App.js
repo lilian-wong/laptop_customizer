@@ -48,6 +48,7 @@ class App extends Component {
         return (
           <FeatureItem 
             key = {itemHash}
+            id = {itemHash}
             item = {item}
             selectedName = {this.state.selected[feature].name}
             name={slugify(feature)}
